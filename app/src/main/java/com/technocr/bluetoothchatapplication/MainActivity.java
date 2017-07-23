@@ -5,11 +5,13 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private BluetoothAdapter mBluetoothAdapter;
     private static final int ENABLE_BLUETOOTH_CODE = 1;
+    private static final int BLUETOOTH_NOT_ENABLED = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,18 +41,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode != ENABLE_BLUETOOTH_CODE)
+        if(resultCode == BLUETOOTH_NOT_ENABLED)
         {
             Toast.makeText(this, "You clicked deny, the application is exiting", Toast.LENGTH_LONG).show();
             finish();
-        }
-        else
-        {
-            Intent discoverableIntent = new Intent(
-                    BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
-            discoverableIntent.putExtra(
-                    BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 300);
-            startActivity(discoverableIntent);
         }
     }
 
@@ -58,5 +52,17 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu,menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId())
+        {
+            case R.id.discover:
+            Intent intent = new Intent(this,DeviceList.class);
+                startActivity(intent);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
