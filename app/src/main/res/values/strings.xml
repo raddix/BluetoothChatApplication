@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">BluetoothChatApplication</string>
+    <string name="none_paired">No devices have been paired</string>
+    <string name="none_found">No devices found</string>
+    <string name="bluetooth_not_available">Bluetooth is not available! The app will exit now</string>
+    <string name="empty_send_error">Please input some texts</string>
+    <string name="bluetooth_not_available_error">Bluetooth is not available!</string>
+    <string name="empty_string" />
+    <string name="connected_to">Connected to</string>
+    <string name="title_bluetooth_devices">Bluetooth Devices</string>
+    <string name="device_address">Device Address :</string>
+    <string name="bluetooth_disabled_error">Bluetooth still disabled, turn off application!</string>
+    <string name="connection_lost_error">Connection was lost!</string>
+    <string name="paired_devices">Paired Devices</string>
+    <string name="discovered_devices">Discovered Devices</string>
+    <string name="cancel">Cancel</string>
 </resources>

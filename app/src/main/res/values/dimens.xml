@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="max_width_chat_textview">100dp</dimen>
+    <dimen name="paddig_for_chat_me">25dp</dimen>
+    <dimen name="padding_for_chat_other">5dp</dimen>
+</resources>
